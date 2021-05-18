@@ -22,6 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "coverage": "yarn test -- --coverage",
     "prettier": "prettier --write ."
   },
   "eslintConfig": {

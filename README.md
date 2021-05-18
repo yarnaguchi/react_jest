@@ -1,9 +1,24 @@
+### 参考
+
+- [Running Tests](https://create-react-app.dev/docs/running-tests/)
+
 ### 環境作成
 
 - [Create React App](https://github.com/facebook/create-react-app)
 
 ```bash
 npx create-react-app react_jest --template typescript
+```
+
+edit package.json
+
+```JavaScript
+{
+  "scripts": {
+    // ...
+    "coverage": "yarn test -- --coverage",
+  }
+}
 ```
 
 - [ESlint](https://github.com/eslint/eslint)
