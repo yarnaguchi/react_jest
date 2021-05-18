@@ -1,0 +1,65 @@
+version: 2
+jobs:
+    one:
+        docker:
+            image: circleci/ruby:2.4.1
+        steps:
+            checkout
+            run: echo "A first hello"
+            run: mkdir -p my_workspace
+            run: echo "Trying out workspaces" > my_workspace/echo-output
+            persist_to_workspace:
+                # Must be an absolute path, or relative path from working_directory
+                root: my_workspace
+                # Must be relative path from root
+                paths:
+                    echo-output
+    two:
+        docker:
+            image: circleci/ruby:2.4.1
+        steps:
+            checkout
+            run: echo "A more familiar hi"
+            attach_workspace:
+                # Must be absolute path or relative path from working_directory
+                at: my_workspace
+            run: |
+                if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
+                    echo "It worked!";
+                else
+                    echo "Nope!"; exit 1
+                fi
+workflows:
+    version: 2
+    one_and_two:
+        jobs:
+            one
+            two:
+                requires:
+                    one
+
+CircleCI側にプロジェクトを追加する
+
+次にCircleCIのwebアプリの左メニューにある"ADD PROJECTS"を選択し、表示されるリポジトリ一覧からCICDを実行したいリポジトリを見つけ、"Set Up Project"をクリックします。
+セットアップ画面では設定を全てデフォルトのままにし、"Start building"をクリック。
+対象のブランチに記述されている.circleci/config.ymlの設定でCIが実行されます。
+最初のJOBがSUCCESSになれば、自動テスト導入の準備完了です。
+yarn testをCircleCIのjob上で実行させ、自動テストを実現する
+
+次にReactのテストを自動実行するためのJobをconfig.ymlに記載します。
+
+
+version: 2
+jobs:
+    test_frontend:
+        docker:
+            - image: circleci/node
+    steps:
+        - checkout
+        - run: yarn install
+        - run: yarn test
+workflows:
+    version: 2
+    run_test:
+        jobs:
+            - test_frontend
