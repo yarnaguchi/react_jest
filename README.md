@@ -1,3 +1,5 @@
+[![CI](https://github.com/YamaguchiRyuta/react_jest/actions/workflows/main.yml/badge.svg)](https://github.com/YamaguchiRyuta/react_jest/actions/workflows/main.yml)
+
 ### 参考
 
 - [Running Tests](https://create-react-app.dev/docs/running-tests/)
