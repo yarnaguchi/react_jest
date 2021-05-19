@@ -143,9 +143,3 @@ edit package.json
   }
 }
 ```
-
-- [react-test-renderer](https://www.npmjs.com/package/react-test-renderer)
-
-```bash
-yarn add --dev react-test-renderer
-```
