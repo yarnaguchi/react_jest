@@ -1,5 +1,11 @@
 [![CI](https://github.com/YamaguchiRyuta/react_jest/actions/workflows/main.yml/badge.svg)](https://github.com/YamaguchiRyuta/react_jest/actions/workflows/main.yml)
 
+## 目的
+- Reactアプリのテスト
+- Github Actionsの学習
+- CIの導入
+- ～
+
 ### 参考
 
 - [Running Tests](https://create-react-app.dev/docs/running-tests/)
