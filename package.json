@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "coverage": "yarn test -- --coverage",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write . !coverage/**/*.{html,htm}"
   },
   "eslintConfig": {
     "extends": [

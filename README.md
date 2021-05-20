@@ -133,7 +133,8 @@ edit .prettierrc.json
 ```JSON
 {
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "jsxSingleQuote": true
 }
 ```
 
@@ -143,7 +144,7 @@ edit package.json
 {
   "scripts": {
     // ...
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write . !coverage/**/*.{html,htm}"
   }
 }
 ```
