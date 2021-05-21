@@ -3,6 +3,5 @@ import { App } from './App';
 
 // eslint-disable-next-line jest/expect-expect
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<App />, document.createElement('div'));
 });
